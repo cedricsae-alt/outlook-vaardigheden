@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+
+  --color-bg: #f3f0ea;
+  --color-bg-warm: #ebe6dc;
+  --color-surface: #fffcf7;
+  --color-surface-2: #f7f2ea;
+  --color-fg: #1b2328;
+  --color-muted: #5c656c;
+  --color-subtle: #7a838a;
+  --color-primary: #2c5f6e;
+  --color-primary-fg: #f3f0ea;
+  --color-primary-hover: #244f5c;
+  --color-border: #ddd6cb;
+  --color-ring: #2c5f6e;
+  --color-success: #3d6b4f;
+  --color-success-soft: #e4eee7;
+  --color-warn: #8a5a2b;
+  --color-warn-soft: #f3eadf;
+  --color-danger: #8b3a32;
+  --color-danger-soft: #f4e4e2;
+  --color-event: #2c5f6e;
+  --color-event-soft: #dce8eb;
+  --color-event-2: #4a5d4e;
+  --color-event-2-soft: #e4ebe6;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  --shadow-border:
+    0px 0px 0px 1px rgba(27, 35, 40, 0.06),
+    0px 1px 2px -1px rgba(27, 35, 40, 0.06),
+    0px 2px 4px 0px rgba(27, 35, 40, 0.04);
+  --shadow-elevated:
+    0px 0px 0px 1px rgba(27, 35, 40, 0.06),
+    0px 8px 24px -8px rgba(27, 35, 40, 0.12);
+
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.stagger-in > * {
+  animation: fade-up 400ms var(--ease-smooth-out) both;
+}
+.stagger-in > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger-in > *:nth-child(2) {
+  animation-delay: 40ms;
+}
+.stagger-in > *:nth-child(3) {
+  animation-delay: 80ms;
+}
+.stagger-in > *:nth-child(4) {
+  animation-delay: 120ms;
+}
+.stagger-in > *:nth-child(5) {
+  animation-delay: 160ms;
+}
+.stagger-in > *:nth-child(6) {
+  animation-delay: 200ms;
+}
+
+@keyframes shake-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+.shake {
+  animation: shake-x 180ms ease-in-out;
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/zoeken",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Outlook-gids",
+      "hasCanvas": false,
+      "bodyTextLen": 698,
+      "bodyTextHash": "f261b921744b92918e1a387af7b7edb5b00d13e42359f1bb5929182246797748",
+      "bodyTextPrefix": "Naar inhoud Zoek Outlook-gids · BM1 10 minuten Start Zoeken vs f",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/zoeken-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Outlook-gids",
+      "hasCanvas": false,
+      "bodyTextLen": 641,
+      "bodyTextHash": "70a6c20fd05ef5087ec3e57c7b7a264c76f37b6cd750dab0c7745e915fee602e",
+      "bodyTextPrefix": "Naar inhoud Zoek Outlook-gids · BM1 Start Begrip Oefen Stappen O",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/zoeken-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/zoeken-preview.json"
+}

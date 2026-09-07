@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Outlook-gids",
+      "hasCanvas": false,
+      "bodyTextLen": 569,
+      "bodyTextHash": "1282c9a5fbfd73249b289b3556406c7349a98af64b4dbf25945883d8ef18f450",
+      "bodyTextPrefix": "Outlook-gids 1ste bachelor Bedrijfsmanagement TWEE HANDLEIDINGEN",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Outlook-gids",
+      "hasCanvas": false,
+      "bodyTextLen": 569,
+      "bodyTextHash": "1282c9a5fbfd73249b289b3556406c7349a98af64b4dbf25945883d8ef18f450",
+      "bodyTextPrefix": "Outlook-gids 1ste bachelor Bedrijfsmanagement TWEE HANDLEIDINGEN",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
