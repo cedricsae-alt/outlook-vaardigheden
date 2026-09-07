@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DelenRouteImport } from './routes/delen'
 import { Route as ReeksRouteImport } from './routes/reeks'
 import { Route as ZoekenRouteImport } from './routes/zoeken'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DelenRoute = DelenRouteImport.update({
+  id: '/delen',
+  path: '/delen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReeksRoute = ReeksRouteImport.update({
@@ -31,30 +37,34 @@ const ZoekenRoute = ZoekenRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/delen': typeof DelenRoute
   '/reeks': typeof ReeksRoute
   '/zoeken': typeof ZoekenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/delen': typeof DelenRoute
   '/reeks': typeof ReeksRoute
   '/zoeken': typeof ZoekenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/delen': typeof DelenRoute
   '/reeks': typeof ReeksRoute
   '/zoeken': typeof ZoekenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/reeks' | '/zoeken'
+  fullPaths: '/' | '/delen' | '/reeks' | '/zoeken'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/reeks' | '/zoeken'
-  id: '__root__' | '/' | '/reeks' | '/zoeken'
+  to: '/' | '/delen' | '/reeks' | '/zoeken'
+  id: '__root__' | '/' | '/delen' | '/reeks' | '/zoeken'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DelenRoute: typeof DelenRoute
   ReeksRoute: typeof ReeksRoute
   ZoekenRoute: typeof ZoekenRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delen': {
+      id: '/delen'
+      path: '/delen'
+      fullPath: '/delen'
+      preLoaderRoute: typeof DelenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reeks': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DelenRoute: DelenRoute,
   ReeksRoute: ReeksRoute,
   ZoekenRoute: ZoekenRoute,
 }

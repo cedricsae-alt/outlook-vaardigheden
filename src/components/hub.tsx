@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, Filter, Repeat, Search } from "lucide-react";
+import { ChevronRight, Filter, Repeat, Search, Share2 } from "lucide-react";
 import { useProgress } from "@/lib/progress";
 import { useSearchProgress } from "@/lib/search-progress";
+import { useShareProgress } from "@/lib/share-progress";
+import { SHARE_CHECKLIST, SHARE_QUIZ } from "@/data/share-content";
 import { cn } from "@/lib/utils";
 
 export function Hub() {
@@ -9,6 +11,11 @@ export function Hub() {
   const reeksExc = useProgress((s) => s.exceptionComplete);
   const search1 = useSearchProgress((s) => s.mission1);
   const search2 = useSearchProgress((s) => s.mission2);
+  const shareChecks = useShareProgress((s) => s.checks);
+  const shareQuiz = useShareProgress((s) => s.quiz);
+  const shareDone =
+    SHARE_CHECKLIST.every((c) => shareChecks[c.id]) &&
+    Object.keys(shareQuiz).length === SHARE_QUIZ.length;
 
   return (
     <div className="min-h-dvh overflow-x-hidden bg-bg">
@@ -33,18 +40,19 @@ export function Hub() {
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-8 sm:py-14">
         <header className="stagger-in mb-10 max-w-2xl">
           <p className="text-xs font-medium tracking-wide text-primary uppercase">
-            Twee handleidingen
+            Drie handleidingen
           </p>
           <h1 className="mt-2 font-display text-3xl font-medium tracking-tight text-fg sm:text-4xl">
             Outlook zoals je het in het eerste jaar nodig hebt.
           </h1>
           <p className="mt-3 text-base leading-relaxed text-muted">
-            Geen volledige Microsoft-help. Wel de twee vaardigheden waar BM-studenten
-            op vastlopen: reeksen in de agenda, en mail terugvinden zonder 80 hits.
+            Geen volledige Microsoft-help. Wel de drie vaardigheden waar BM-studenten
+            op vastlopen: reeksen in de agenda, mail terugvinden zonder 80 hits, en je
+            agenda delen of machtigen zonder te veel prijs te geven.
           </p>
         </header>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-3">
           <GuideCard
             to="/reeks"
             icon={Repeat}
@@ -65,6 +73,16 @@ export function Hub() {
             done={search1 && search2}
             doneLabel="Oefeninbox klaar"
           />
+          <GuideCard
+            to="/delen"
+            icon={Share2}
+            kicker="Agenda"
+            title="Delen en machtigen"
+            body="Kan bekijken, bewerken of gemachtigde? Je agenda delen met je groep of stagementor — en toegang weer intrekken."
+            time="10 min"
+            done={shareDone}
+            doneLabel="Checklist en toets klaar"
+          />
         </div>
       </main>
     </div>
@@ -81,7 +99,7 @@ function GuideCard({
   done,
   doneLabel,
 }: {
-  to: "/reeks" | "/zoeken";
+  to: "/reeks" | "/zoeken" | "/delen";
   icon: typeof Repeat;
   kicker: string;
   title: string;
